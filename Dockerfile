@@ -3,4 +3,4 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 RUN apk add bash --update-cache --repository https://pkgs.alpinelinux.org/package/edge/main/ --allow-untrusted
-CMD PYTHONPATH=. python main/main.py
+CMD PYTHONPATH=/app python /app/main/main.py
