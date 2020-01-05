@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from dateutil import parser
 from munch import Munch
 from tinydb import TinyDB, Query
-import logging
 import time
 
 from web_crawler import consts
@@ -22,7 +21,7 @@ class WebCrawler(object):
         while True:
             self.fetch_urls()
             self.write_to_db()
-            print("sleeping")
+            self.logger.info("sleeping")
             time.sleep(consts.TIME_TO_SLEEP)
 
     def fetch_urls(self):
@@ -37,13 +36,11 @@ class WebCrawler(object):
                 paste_id = url_postfix["href"]
                 self.keys.add(paste_id)
                 self.logger.info("Added %s to keys", paste_id)
-                print("Added %s to keys" % paste_id)
 
     def write_to_db(self):
         for paste_id in self.keys:
             if not self._paste_in_db(paste_id):
                 self.logger.info("Handling %s", paste_id)
-                print("Handling %s" % paste_id)
                 paste_url = "%s%s" % (consts.BASE_PASTEBIN_URL, paste_id)
                 paste_soup = self._get_page_soup(paste_url)
                 paste_info = paste_soup.find(
@@ -63,10 +60,8 @@ class WebCrawler(object):
                                      )
                 self.db.insert(paste_object)
                 self.logger.info("Added %s to db", paste_id)
-                print("Handling %s" % paste_id)
             else:
                 self.logger.info("%s already in db", paste_id)
-                print("%s already in db" % paste_id)
 
     def _paste_in_db(self, paste_id):
         Paste = Query()

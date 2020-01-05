@@ -14,7 +14,7 @@ def main():
     try:
         web_crawler.main()
     except Exception:
-	    logging.error("Exception occurred", exc_info=True)
+        logging.error("Exception occurred", exc_info=True)
 
 
 if __name__ == "__main__":
