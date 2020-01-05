@@ -9,8 +9,7 @@ docker
 ### Installing
 
 ```
-docker pull alperthod/repo:web_crawler
-docker run web_crawler
+docker run -d --name web_crawler alperthod/repo:web_crawler
 ```
 
 ### Debugging
@@ -26,7 +25,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 Then select the container id with the *web_crawler* image and type
 ```
-docker exec -it <container-id> bash
+docker exec -it web_crawler bash
 ```
 Now you should be in the container shell.
 
