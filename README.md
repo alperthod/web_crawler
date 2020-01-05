@@ -4,7 +4,9 @@ This web crawler crawls the [Pastebin](https://pastebin.com/) site and stores th
 
 ### Prerequisites
 
-docker
+* docker
+* python 3
+* git
 
 ### Installing
 In order to execute the code via docker run:
@@ -15,6 +17,8 @@ docker run -d -v `pwd`:`pwd` -w `pwd` --name web_crawler alperthod/repo:web_craw
 In order to run the code directly enter the package directory and type:
 
 ```
+git clone https://github.com/alperthod/web_crawler.git
+cd web_crawler
 PYTHONPATH=. python main/main.py
 ```
 
