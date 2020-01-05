@@ -14,16 +14,8 @@ docker run -d --name web_crawler alperthod/repo:web_crawler
 
 ### Debugging
 
-In order to debug the container execution and see the current db file do the following:
-```
-docker ps
-```
-This should print somthing like 
-```
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-805cdc08dc36        web_crawler         "/bin/sh -c 'PYTHONP…"   5 seconds ago       Up 4 seconds                            strange_chebyshev
-```
-Then select the container id with the *web_crawler* image and type
+In order to debug the container execution and see the current db file type:
+
 ```
 docker exec -it web_crawler bash
 ```
