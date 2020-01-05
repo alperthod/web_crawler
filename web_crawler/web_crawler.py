@@ -60,6 +60,7 @@ class WebCrawler(object):
                                      )
                 self.db.insert(paste_object)
                 self.logger.info("Added %s to db", paste_id)
+                time.sleep(1)
             else:
                 self.logger.info("%s already in db", paste_id)
 
