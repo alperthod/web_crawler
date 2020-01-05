@@ -19,6 +19,7 @@ In order to run the code directly enter the package directory and type:
 ```
 git clone https://github.com/alperthod/web_crawler.git
 cd web_crawler
+pip install -r requirements.txt
 PYTHONPATH=. python main/main.py
 ```
 
