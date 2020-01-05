@@ -9,22 +9,18 @@ docker
 ### Installing
 
 ```
-docker run -d --name web_crawler alperthod/repo:web_crawler
+docker run -d -v `pwd`:`pwd` -w `pwd` --name web_crawler alperthod/repo:web_crawler
 ```
 
 ### Debugging
 
-In order to debug the container execution and see the current db file type:
+In order to debug the container execution and see the current db file do:
 
-```
-docker exec -it web_crawler bash
-```
-Now you should be in the container shell.
-
-In order to see the execution log- type
 ```
 tail -f web_crawler.log
 ```
+in order to see the log file.
+
 And in order to see the current *tiny_db* file type
 ```
 tail -f pastebin_db.json
