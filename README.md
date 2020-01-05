@@ -7,9 +7,15 @@ This web crawler crawls the [Pastebin](https://pastebin.com/) site and stores th
 docker
 
 ### Installing
+In order to execute the code via docker run:
 
 ```
 docker run -d -v `pwd`:`pwd` -w `pwd` --name web_crawler alperthod/repo:web_crawler
+```
+In order to run the code directly enter the package directory and type:
+
+```
+PYTHONPATH=. python main/main.py
 ```
 
 ### Debugging
@@ -37,6 +43,8 @@ This code run in two iterations:
 
 This task does not have any parallelism (multithreading or anything) since the only place I really thought it should be worth trying
 was in fetching the pastes from [Pastebin](https://pastebin.com/), but it queried too many times too fast and it git my ip blocked so I decided to reduce the efficiency in order to avoid the blocking.
+
+In addition I added a sleep of 1 sec' after every request in order to avoid
 
 ## Packages
 
